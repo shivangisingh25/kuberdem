@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuberdem-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Kuberdem
+  template:
+    metadata:
+      labels:
+        app: Kuberdem
+    spec:
+      containers:
+      - name: kuberdemrepos
+        image: kuberdemcr.azurecr.io/kuberdemrepos:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: kuberdemsn
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kuberdem
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: Kuberdem
