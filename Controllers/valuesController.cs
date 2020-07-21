@@ -15,7 +15,7 @@ namespace kuberdem.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "kubernetes", "demo","successful" };
+            return new string[] { "kubernetes", "demo","successful","demo" };
         }
 
     }
