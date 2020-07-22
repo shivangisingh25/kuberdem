@@ -13,7 +13,7 @@ spec:
         app: Kuberdem
     spec:
       containers:
-      - name: kuberdemrepos
+      - name: kuberdem
         image: kuberdemcr.azurecr.io/kuberdemrepos:latest
         ports:
         - containerPort: 8080
